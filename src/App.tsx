@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <div>
+      <Card>
         <GlobalStyles />
         <h1>Hello theme!</h1>
         <Button onClick={toggleTheme}>
@@ -25,10 +25,19 @@ const App = () => {
             </span>
           )}
         </Button>
-      </div>
+      </Card>
     </ThemeProvider>
   );
 };
+
+const Card = styled.div`
+  width: 350px;
+  max-width: 100%;
+  padding: 24px;
+  background-color: ${({ theme }) => theme.surface};
+  border: 1px solid ${({ theme }) => theme.border};
+  border-radius: 4px;
+`;
 
 const Button = styled.button`
   padding: 8px 16px;
